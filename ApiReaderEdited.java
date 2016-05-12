@@ -23,8 +23,9 @@ import org.json.JSONObject;
  * 
  * 
  */
-public class ApiReader {
+public class ApiReaderEdited {
 	
+	private static LinkedList<String> congressmen = new LinkedList();
 	/**
 	 * 
 	 * read is a private helper function used to parse all the way through
@@ -66,7 +67,6 @@ public class ApiReader {
 	 * @author William Archer
 	 */
 	public static JSONObject getJSON(String url) {
-		
 		try {
 			//open up the url and get the bytes 
 			InputStream is = new URL(url).openStream();
@@ -118,7 +118,9 @@ public class ApiReader {
 				//building congressperson's name
 				String congressperson = (congress.getString("firstname") 
 						+ " " + congress.getString("lastname")).toLowerCase();
-				
+				if (!congressmen.contains(congressperson)) {
+					congressmen.add(congressperson);
+				}
 				JSONArray cosponsors = object.getJSONArray("cosponsors");
 				
 				//co-sponsors are stored in a JSONArray which
@@ -128,7 +130,9 @@ public class ApiReader {
 					String cosponsorName = (cosponsor.getString("firstname") 
 							+ " " + cosponsor.getString("lastname")).toLowerCase();
 					
-					
+					if (!congressmen.contains(cosponsorName)) {
+						congressmen.add(cosponsorName);
+					}
 					//if we haven't encountered the sponsor before
 					//we need to create a new list
 					if(retVal.get(congressperson) == null) {
@@ -146,6 +150,10 @@ public class ApiReader {
 			e.printStackTrace();
 		}
 		return retVal;
+	}
+	
+	public static List<String> getCongressmen() {
+		return congressmen;
 	}
 	
 }
