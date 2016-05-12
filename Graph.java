@@ -43,21 +43,35 @@ public class Graph {
 		}
 		// Make an array of all sponsors
 		String[] sponsors = connections.keySet().toArray(new String[0]);
+<<<<<<< HEAD
+=======
+		
+>>>>>>> origin/master
 		// Add the incoming and outgoing edges to the graph
 		for (int i = 0; i < sponsors.length; i++) {
 			List<String> cosponsors = connections.get(sponsors[i]);
 			// Get the node corresponding to the sponsor's name
 			Node sponsor = getNode(sponsors[i]);
 			for (String curr: cosponsors) {
+<<<<<<< HEAD
 				// Get the node corresponding to the cosponsor's name
+=======
+				// Get the node corressponding to the cosponsor's name
+>>>>>>> origin/master
 				Node cosponsor = getNode(curr);
 				// add an incoming edge from the cosponsor to the sponsor
 				sponsor.addIncomingEdge(cosponsor);
 				// add an outgoing edge from the cosponsor to the sponsor 
+<<<<<<< HEAD
 				//System.out.println(cosponsor.getName() + "   " + sponsor.getName());
 				cosponsor.addOutgoingEdge(sponsor);
 			}
 			
+=======
+				cosponsor.addOutgoingEdge(sponsor);
+			}
+			//System.out.println("The sponsor " + sponsor.getName() + " has " + sponsor.getIncomingEdges().size() + " cosponsors.");
+>>>>>>> origin/master
 		}
 	}
 	/**
@@ -65,7 +79,11 @@ public class Graph {
 	 * @param name
 	 * @return the node that corresponds with the name 
 	 */
+<<<<<<< HEAD
 	public Node getNode(String name) {
+=======
+	private Node getNode(String name) {
+>>>>>>> origin/master
 		for (Node curr: nodes) {
 			if (curr.getName().equals(name)) {
 				return curr;

@@ -60,7 +60,11 @@ public class Node {
 	 * A getter for the outdegree of a node
 	 * @return an integer represeting the indegree
 	 */
+<<<<<<< HEAD
 	public int getOutDegree() {
+=======
+	public int getOutDegreee() {
+>>>>>>> origin/master
 		return outgoingEdges.size();
 	}
 	
@@ -93,6 +97,7 @@ public class Node {
 			outgoingEdges.put(name, 1);
 		}
 	}
+<<<<<<< HEAD
 	
 	/**
 	 * Gets neighborhood overlap of in degree neighbors
@@ -207,4 +212,6 @@ public class Node {
 	}
 
 
+=======
+>>>>>>> origin/master
 }
